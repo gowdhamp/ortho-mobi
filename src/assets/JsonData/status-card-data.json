@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "bx bxl-baidu",
+    "count": "--:--",
+    "title": "Total Steps"
+  },
+  {
+    "icon": "bx bx-pulse",
+    "count": "--:-- Hz",
+    "title": "PPG Rate"
+  },
+  {
+    "icon": "bx bx-tachometer",
+    "count": "--:-- Pa",
+    "title": "Pressure"
+  },
+  {
+    "icon": "bx bxs-thermometer",
+    "count": "--:-- °C",
+    "title": "Temperature"
+  }
+]
