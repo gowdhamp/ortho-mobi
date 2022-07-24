@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "ortho-mobi",
+=======
+  "name": "ortho_mobi",
+>>>>>>> 34a13c74c0f839eecef219a53762c7562782fdc0
   "version": "0.1.0",
   "private": true,
   "dependencies": {
