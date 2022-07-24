@@ -1,10 +1,10 @@
-# React Admin Dashboard with Multiple Themes
+# React Medical Dashboard with Dark & Light Themes
 
-    Build React Admin Dashboard with Multiple Themes | React Admin Panel CSS | ReactJS
+    Build React Medical Dashboard with  Dark & Light Themes | React Admin Panel CSS | ReactJS
 
 # Description
 
-    We will Build React Admin Dashboard with Multiple Themes | React Admin Panel CSS | ReactJS
+    We will Build React Medical Dashboard with  Dark & Light Themes | React Admin Panel CSS | ReactJS
 
 # Resource
 
