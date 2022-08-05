@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import StatusCard from '../components/status-card/StatusCard';
 import statusCards from '../assets/JsonData/status-card-data.json';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 const chartOptions = {
   seriesemg: [
@@ -98,6 +99,13 @@ const Dashboard = () => {
   const themeReducer = useSelector((state) => state.ThemeReducer.mode);
 
   const [realData, setRealData] = useState(statusCards);
+  const [axdata, setaxdata] = useState({
+    id: '0',
+    total_steps: '0',
+    ppg_rate_hz: '0',
+    blood_pressure_kpa: '0',
+    temp_in_fer: '0',
+  });
   const [stepCount, setStepCount] = useState(0);
 
   setTimeout(() => {
@@ -105,31 +113,61 @@ const Dashboard = () => {
   }, 2000);
 
   useEffect(() => {
-    setTimeout(() => {
-      setRealData([
-        {
-          icon: 'bx bxl-baidu',
-          count: `${stepCount}`,
-          title: 'Total Steps',
-        },
-        {
-          icon: 'bx bx-pulse',
-          count: `${Math.floor(Math.random() * (20 - 7)) + 7} Hz`,
-          title: 'PPG Rate',
-        },
-        {
-          icon: 'bx bx-tachometer',
-          count: `${Math.floor(Math.random() * (80 - 60)) + 60} kPa`,
-          title: 'Pressure',
-        },
-        {
-          icon: 'bx bxs-thermometer',
-          count: `${Math.floor(Math.random() * (100 - 97)) + 97} °F`,
-          title: 'Temperature',
-        },
-      ]);
-    }, 1000);
-  }, [realData]);
+    axios
+      .get('https://exploremychoice.in/sih/ortho-mobi/getdata.php')
+      .then((response) => {
+        setaxdata(response.data[0]);
+      });
+    setRealData([
+      {
+        icon: 'bx bxl-baidu',
+        count: `${axdata.total_steps}`,
+        title: 'Total Steps',
+      },
+      {
+        icon: 'bx bx-pulse',
+        count: `${axdata.ppg_rate_hz} Hz`,
+        title: 'PPG Rate',
+      },
+      {
+        icon: 'bx bx-tachometer',
+        count: `${axdata.blood_pressure_kpa} kPa`,
+        title: 'Pressure',
+      },
+      {
+        icon: 'bx bxs-thermometer',
+        count: `${axdata.temp_in_fer} °F`,
+        title: 'Temperature',
+      },
+    ]);
+  }, [axdata]);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setRealData([
+  //       {
+  //         icon: 'bx bxl-baidu',
+  //         count: `${stepCount}`,
+  //         title: 'Total Steps',
+  //       },
+  //       {
+  //         icon: 'bx bx-pulse',
+  //         count: `${Math.floor(Math.random() * (20 - 7)) + 7} Hz`,
+  //         title: 'PPG Rate',
+  //       },
+  //       {
+  //         icon: 'bx bx-tachometer',
+  //         count: `${Math.floor(Math.random() * (80 - 60)) + 60} kPa`,
+  //         title: 'Pressure',
+  //       },
+  //       {
+  //         icon: 'bx bxs-thermometer',
+  //         count: `${Math.floor(Math.random() * (100 - 97)) + 97} °F`,
+  //         title: 'Temperature',
+  //       },
+  //     ]);
+  //   }, 1000);
+  // }, [realData]);
 
   return (
     <div>
