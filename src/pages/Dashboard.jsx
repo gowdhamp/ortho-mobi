@@ -140,7 +140,7 @@ const Dashboard = () => {
         title: 'Temperature',
       },
     ]);
-  }, [axdata]);
+  }, [axdata, stepCount]);
 
   // useEffect(() => {
   //   setTimeout(() => {
