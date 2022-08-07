@@ -74,11 +74,11 @@ const ThemeMenu = () => {
 
   useEffect(() => {
     const themeClass = mode_settings.find(
-      (e) => e.class === localStorage.getItem('themeMode', 'theme-mode-light')
+      (e) => e.class === localStorage.getItem('themeMode', 'theme-mode-dark')
     );
 
     const colorClass = color_settings.find(
-      (e) => e.class === localStorage.getItem('colorMode', 'theme-mode-light')
+      (e) => e.class === localStorage.getItem('colorMode', 'theme-color-blue')
     );
 
     if (themeClass !== undefined) setcurrMode(themeClass.id);
