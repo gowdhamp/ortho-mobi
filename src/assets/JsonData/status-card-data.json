@@ -5,18 +5,18 @@
     "title": "Total Steps"
   },
   {
-    "icon": "bx bx-pulse",
+    "icon": "bx bxs-thermometer",
+    "count": "--:-- °C",
+    "title": "Temperature"
+  },
+  {
+    "icon": "bx bx-tachometer",
     "count": "--:-- Hz",
-    "title": "PPG Rate"
+    "title": "Foot Pressure (L)"
   },
   {
     "icon": "bx bx-tachometer",
     "count": "--:-- Pa",
-    "title": "Pressure"
-  },
-  {
-    "icon": "bx bxs-thermometer",
-    "count": "--:-- °C",
-    "title": "Temperature"
+    "title": "Foot Pressure (R)"
   }
 ]

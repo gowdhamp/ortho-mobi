@@ -54,7 +54,7 @@ const ThemeMenu = () => {
 
   const closeMenu = () => menu_ref.current.classList.remove('active');
 
-  const [currMode, setcurrMode] = useState('light');
+  const [currMode, setcurrMode] = useState('dark');
 
   const [currColor, setcurrColor] = useState('blue');
 

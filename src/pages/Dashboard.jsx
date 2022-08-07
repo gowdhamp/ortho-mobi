@@ -125,19 +125,19 @@ const Dashboard = () => {
         title: 'Total Steps',
       },
       {
-        icon: 'bx bx-pulse',
-        count: `${axdata.ppg_rate_hz} Hz`,
-        title: 'PPG Rate',
+        icon: 'bx bxs-thermometer',
+        count: `${axdata.ppg_rate_hz} °C`,
+        title: 'Temperature',
       },
       {
         icon: 'bx bx-tachometer',
         count: `${axdata.blood_pressure_kpa} kPa`,
-        title: 'Pressure',
+        title: 'Foot Pressure (L)',
       },
       {
-        icon: 'bx bxs-thermometer',
-        count: `${axdata.temp_in_fer} °F`,
-        title: 'Temperature',
+        icon: 'bx bx-tachometer',
+        count: `${axdata.blood_pressure_kpa} kPa`,
+        title: 'Foot Pressure (R)',
       },
     ]);
   }, [axdata, stepCount]);

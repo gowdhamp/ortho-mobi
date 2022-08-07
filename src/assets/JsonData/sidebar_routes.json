@@ -1,23 +1,23 @@
 [
   {
     "display_name": "Dashboard",
-    "route": "/",
+    "route": "./",
     "icon": "bx bx-category-alt"
   },
   {
     "display_name": "Analytics",
-    "route": "/analytics",
+    "route": "./analytics",
     "icon": "bx bx-bar-chart-alt"
   },
   {
     "display_name": "categories",
-    "route": "/categories",
+    "route": "./categories",
     "icon": "bx bx-list-ol"
   },
 
   {
     "display_name": "settings",
-    "route": "/settings",
+    "route": "./settings",
     "icon": "bx bx-cog"
   }
 ]
