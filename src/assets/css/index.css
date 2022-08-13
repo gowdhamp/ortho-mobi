@@ -141,43 +141,43 @@ input:focus {
 }
 
 .img-container .point-1 {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   left: 9%;
   top: 40%;
 }
 
 .img-container .point-2 {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   left: 26%;
   top: 28%;
 }
 
 .img-container .point-3 {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   left: 16%;
   top: 76%;
 }
 
 .img-container .point-4 {
-  width: 50px;
-  height: 50px;
-  left: 82%;
+  width: 40px;
+  height: 40px;
+  left: 79%;
   top: 40%;
 }
 
 .img-container .point-5 {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   left: 59%;
   top: 28%;
 }
 
 .img-container .point-6 {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   left: 66%;
   top: 76%;
 }
