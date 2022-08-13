@@ -124,6 +124,109 @@ input:focus {
   color: #000;
 }
 
+.img-container {
+  position: relative;
+}
+
+.img-container img {
+  width: 100%;
+  opacity: 0.7;
+}
+
+.img-container .pressure-point {
+  position: absolute;
+  z-index: 1;
+  border-radius: 69% 31% 51% 49% / 55% 47% 53% 45%;
+  opacity: 0.9;
+}
+
+.img-container .point-1 {
+  width: 50px;
+  height: 50px;
+  left: 9%;
+  top: 40%;
+}
+
+.img-container .point-2 {
+  width: 70px;
+  height: 70px;
+  left: 26%;
+  top: 28%;
+}
+
+.img-container .point-3 {
+  width: 100px;
+  height: 100px;
+  left: 16%;
+  top: 76%;
+}
+
+.img-container .point-4 {
+  width: 50px;
+  height: 50px;
+  left: 82%;
+  top: 40%;
+}
+
+.img-container .point-5 {
+  width: 70px;
+  height: 70px;
+  left: 59%;
+  top: 28%;
+}
+
+.img-container .point-6 {
+  width: 100px;
+  height: 100px;
+  left: 66%;
+  top: 76%;
+}
+
+.pressure-point.low {
+  background-image: radial-gradient(
+    circle,
+    #ef0909 8%,
+    #ef5400,
+    #ec7b00 23%,
+    #e69c00,
+    #deba00,
+    #d3c400 50%,
+    #c5cd00,
+    #b6d60d,
+    #a7ce0a,
+    #98c708,
+    #89bf06,
+    #7ab706 100%
+  );
+}
+.pressure-point.medium {
+  background-image: radial-gradient(
+    circle,
+    #ef0909 19%,
+    #ef5400,
+    #ec7b00 51%,
+    #e69c00,
+    #deba00,
+    #d3c400,
+    #c5cd00,
+    #b6d60d,
+    #a7ce0a,
+    #98c708,
+    #89bf06,
+    #7ab706
+  );
+}
+.pressure-point.high {
+  background-image: radial-gradient(
+    circle,
+    #ef0909 38%,
+    #ef5400,
+    #ec7b00 72%,
+    #e69c00,
+    #deba00 100%
+  );
+}
+
 .dark-background {
   background-color: var(--main-bg-dark);
   color: #fff;
