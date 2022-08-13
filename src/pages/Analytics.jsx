@@ -6,7 +6,7 @@ const Analytics = () => {
     <div>
       <h2 className="page-header">Analytics</h2>
       <div className="row">
-        <div className="col-4">
+        <div className="col-5">
           <div className="card">
             <h3>Pressure</h3>
             <div className="img-container">
