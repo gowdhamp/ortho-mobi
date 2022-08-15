@@ -99,13 +99,21 @@ const Dashboard = () => {
   const themeReducer = useSelector((state) => state.ThemeReducer.mode);
 
   const [realData, setRealData] = useState(statusCards);
+  // console.log(realData);
   const [axdata, setaxdata] = useState({
     id: '0',
     total_steps: '0',
     ppg_rate_hz: '0',
-    blood_pressure_kpa: '0',
+    pressure_point_1: '0',
+    pressure_point_2: '0',
+    pressure_point_3: '0',
+    pressure_point_4: '0',
+    pressure_point_5: '0',
+    pressure_point_6: '0',
     temp_in_fer: '0',
+    timestamp: '0',
   });
+  console.log(axdata);
   const [stepCount, setStepCount] = useState(0);
 
   setTimeout(() => {
@@ -131,12 +139,22 @@ const Dashboard = () => {
       },
       {
         icon: 'bx bx-tachometer',
-        count: `${axdata.blood_pressure_kpa} kPa`,
+        count: `${
+          (parseInt(axdata.pressure_point_1) +
+            parseInt(axdata.pressure_point_2) +
+            parseInt(axdata.pressure_point_3)) /
+          3
+        } kPa`,
         title: 'Foot Pressure (L)',
       },
       {
         icon: 'bx bx-tachometer',
-        count: `${axdata.blood_pressure_kpa} kPa`,
+        count: `${
+          (parseInt(axdata.pressure_point_4) +
+            parseInt(axdata.pressure_point_5) +
+            parseInt(axdata.pressure_point_6)) /
+          3
+        } kPa`,
         title: 'Foot Pressure (R)',
       },
     ]);

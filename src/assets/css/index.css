@@ -134,6 +134,12 @@ input:focus {
 }
 
 .img-container .pressure-point {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
   position: absolute;
   z-index: 1;
   border-radius: 69% 31% 51% 49% / 55% 47% 53% 45%;
@@ -155,8 +161,8 @@ input:focus {
 }
 
 .img-container .point-3 {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   left: 16%;
   top: 76%;
 }
@@ -176,8 +182,8 @@ input:focus {
 }
 
 .img-container .point-6 {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   left: 66%;
   top: 76%;
 }
