@@ -139,22 +139,22 @@ const Dashboard = () => {
       },
       {
         icon: 'bx bx-tachometer',
-        count: `${
+        count: `${(
           (parseInt(axdata.pressure_point_1) +
             parseInt(axdata.pressure_point_2) +
             parseInt(axdata.pressure_point_3)) /
           3
-        } kPa`,
+        ).toFixed(2)} kPa`,
         title: 'Foot Pressure (L)',
       },
       {
         icon: 'bx bx-tachometer',
-        count: `${
+        count: `${(
           (parseInt(axdata.pressure_point_4) +
             parseInt(axdata.pressure_point_5) +
             parseInt(axdata.pressure_point_6)) /
           3
-        } kPa`,
+        ).toFixed(2)} kPa`,
         title: 'Foot Pressure (R)',
       },
     ]);
