@@ -144,7 +144,7 @@ const Dashboard = () => {
             parseInt(axdata.pressure_point_2) +
             parseInt(axdata.pressure_point_3)) /
           3
-        ).toFixed(2)} kPa`,
+        ).toFixed(2)} Pa`,
         title: 'Foot Pressure (L)',
       },
       {
@@ -154,7 +154,7 @@ const Dashboard = () => {
             parseInt(axdata.pressure_point_5) +
             parseInt(axdata.pressure_point_6)) /
           3
-        ).toFixed(2)} kPa`,
+        ).toFixed(2)} Pa`,
         title: 'Foot Pressure (R)',
       },
     ]);
