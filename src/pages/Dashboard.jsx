@@ -70,7 +70,7 @@ const donetOptions = {
         startAngle: -140,
         endAngle: 140,
         track: {
-          background: '#2d2d2d',
+          background: '#fff',
           startAngle: -140,
           endAngle: 140,
         },
@@ -160,33 +160,6 @@ const Dashboard = () => {
     ]);
   }, [axdata, stepCount]);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setRealData([
-  //       {
-  //         icon: 'bx bxl-baidu',
-  //         count: `${stepCount}`,
-  //         title: 'Total Steps',
-  //       },
-  //       {
-  //         icon: 'bx bx-pulse',
-  //         count: `${Math.floor(Math.random() * (20 - 7)) + 7} Hz`,
-  //         title: 'PPG Rate',
-  //       },
-  //       {
-  //         icon: 'bx bx-tachometer',
-  //         count: `${Math.floor(Math.random() * (80 - 60)) + 60} kPa`,
-  //         title: 'Pressure',
-  //       },
-  //       {
-  //         icon: 'bx bxs-thermometer',
-  //         count: `${Math.floor(Math.random() * (100 - 97)) + 97} °F`,
-  //         title: 'Temperature',
-  //       },
-  //     ]);
-  //   }, 1000);
-  // }, [realData]);
-
   return (
     <div>
       <h2 className="page-header">Dashboard</h2>
@@ -235,10 +208,16 @@ const Dashboard = () => {
                   ? {
                       ...donetOptions.options,
                       theme: { mode: 'dark' },
+                      plotOptions: {
+                        radialBar: { track: { background: '#2d2d2d' } },
+                      },
                     }
                   : {
                       ...donetOptions.options,
                       theme: { mode: 'light' },
+                      plotOptions: {
+                        radialBar: { track: { background: '#fff' } },
+                      },
                     }
               }
               series={donetOptions.series}
