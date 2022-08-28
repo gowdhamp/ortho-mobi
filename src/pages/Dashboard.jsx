@@ -149,7 +149,7 @@ const Dashboard = () => {
         },
         {
           icon: 'bx bxs-thermometer',
-          count: `${axdataLeft.emg_rate} °C`,
+          count: `${axdataLeft.temperature} °C`,
           title: 'Temperature',
         },
         {
