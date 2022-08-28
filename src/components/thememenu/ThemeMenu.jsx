@@ -54,7 +54,7 @@ const ThemeMenu = () => {
 
   const closeMenu = () => menu_ref.current.classList.remove('active');
 
-  const [currMode, setcurrMode] = useState('dark');
+  const [currMode, setcurrMode] = useState('light');
 
   const [currColor, setcurrColor] = useState('blue');
 
@@ -74,7 +74,7 @@ const ThemeMenu = () => {
 
   useEffect(() => {
     const themeClass = mode_settings.find(
-      (e) => e.class === localStorage.getItem('themeMode', 'theme-mode-dark')
+      (e) => e.class === localStorage.getItem('themeMode', 'theme-mode-light')
     );
 
     const colorClass = color_settings.find(

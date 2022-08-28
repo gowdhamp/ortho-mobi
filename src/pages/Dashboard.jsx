@@ -100,20 +100,24 @@ const Dashboard = () => {
 
   const [realData, setRealData] = useState(statusCards);
   // console.log(realData);
-  const [axdata, setaxdata] = useState({
+  const [axdataLeft, setaxdataLeft] = useState({
     id: '0',
-    total_steps: '0',
-    ppg_rate_hz: '0',
+    steps: '0',
+    emg_rate: '0',
     pressure_point_1: '0',
     pressure_point_2: '0',
     pressure_point_3: '0',
-    pressure_point_4: '0',
-    pressure_point_5: '0',
-    pressure_point_6: '0',
-    temp_in_fer: '0',
+    temperature: '0',
     timestamp: '0',
   });
-  console.log(axdata);
+  const [axdataRight, setaxdataRight] = useState({
+    id: '0',
+    emg_rate: '0',
+    pressure_point_1: '0',
+    pressure_point_2: '0',
+    pressure_point_3: '0',
+    timestamp: '0',
+  });
   const [stepCount, setStepCount] = useState(0);
 
   setTimeout(() => {
@@ -121,44 +125,52 @@ const Dashboard = () => {
   }, 2000);
 
   useEffect(() => {
-    axios
-      .get('https://exploremychoice.in/sih/ortho-mobi/getdata.php')
-      .then((response) => {
-        setaxdata(response.data[0]);
-      });
-    setRealData([
-      {
-        icon: 'bx bxl-baidu',
-        count: `${axdata.total_steps}`,
-        title: 'Total Steps',
-      },
-      {
-        icon: 'bx bxs-thermometer',
-        count: `${axdata.ppg_rate_hz} °C`,
-        title: 'Temperature',
-      },
-      {
-        icon: 'bx bx-tachometer',
-        count: `${(
-          (parseInt(axdata.pressure_point_1) +
-            parseInt(axdata.pressure_point_2) +
-            parseInt(axdata.pressure_point_3)) /
-          3
-        ).toFixed(2)} Pa`,
-        title: 'Foot Pressure (L)',
-      },
-      {
-        icon: 'bx bx-tachometer',
-        count: `${(
-          (parseInt(axdata.pressure_point_4) +
-            parseInt(axdata.pressure_point_5) +
-            parseInt(axdata.pressure_point_6)) /
-          3
-        ).toFixed(2)} Pa`,
-        title: 'Foot Pressure (R)',
-      },
-    ]);
-  }, [axdata, stepCount]);
+    setInterval(() => {
+      axios
+        .get('https://exploremychoice.in/sih/ortho-mobi/getdataLeft.php')
+        .then((response) => {
+          setaxdataLeft(response.data[0]);
+        });
+      axios
+        .get('https://exploremychoice.in/sih/ortho-mobi/getdataRight.php')
+        .then((response) => {
+          setaxdataRight(response.data[0]);
+        });
+
+      setRealData([
+        {
+          icon: 'bx bxl-baidu',
+          count: `${axdataLeft.steps}`,
+          title: 'Total Steps',
+        },
+        {
+          icon: 'bx bxs-thermometer',
+          count: `${axdataLeft.emg_rate} °C`,
+          title: 'Temperature',
+        },
+        {
+          icon: 'bx bx-tachometer',
+          count: `${(
+            (parseInt(axdataLeft.pressure_point_1) +
+              parseInt(axdataLeft.pressure_point_2) +
+              parseInt(axdataLeft.pressure_point_3)) /
+            3
+          ).toFixed(2)} Pa`,
+          title: 'Foot Pressure (L)',
+        },
+        {
+          icon: 'bx bx-tachometer',
+          count: `${(
+            (parseInt(axdataRight.pressure_point_1) +
+              parseInt(axdataRight.pressure_point_2) +
+              parseInt(axdataRight.pressure_point_3)) /
+            3
+          ).toFixed(2)} Pa`,
+          title: 'Foot Pressure (R)',
+        },
+      ]);
+    }, 20000);
+  }, [axdataLeft, axdataRight, stepCount]);
 
   return (
     <div>

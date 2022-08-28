@@ -8,27 +8,40 @@ import footprint from './../assets/images/footprint.png';
 const Analytics = () => {
   // const ThemeReducer = useSelector((state) => state.ThemeReducer.mode);
 
-  const [pressureData, setPressureData] = useState({
+  const [pressureDataLeft, setPressureDataLeft] = useState({
     id: '0',
-    total_steps: '0',
-    ppg_rate_hz: '0',
+    steps: '0',
+    emg_rate: '0',
     pressure_point_1: '0',
     pressure_point_2: '0',
     pressure_point_3: '0',
-    pressure_point_4: '0',
-    pressure_point_5: '0',
-    pressure_point_6: '0',
-    temp_in_fer: '0',
+    temperature: '0',
+    timestamp: '0',
+  });
+  const [pressureDataRight, setPressureDataRight] = useState({
+    id: '0',
+    emg_rate: '0',
+    pressure_point_1: '0',
+    pressure_point_2: '0',
+    pressure_point_3: '0',
     timestamp: '0',
   });
 
   useEffect(() => {
-    axios
-      .get('https://exploremychoice.in/sih/ortho-mobi/getdata.php')
-      .then((response) => {
-        setPressureData(response.data[0]);
-      });
-  }, [pressureData]);
+    setInterval(() => {
+      axios
+        .get('https://exploremychoice.in/sih/ortho-mobi/getdataleft.php')
+        .then((response) => {
+          setPressureDataLeft(response.data[0]);
+        });
+
+      axios
+        .get('https://exploremychoice.in/sih/ortho-mobi/getdataright.php')
+        .then((response) => {
+          setPressureDataRight(response.data[0]);
+        });
+    }, 2000);
+  }, [pressureDataLeft, pressureDataRight]);
 
   return (
     <div>
@@ -40,11 +53,11 @@ const Analytics = () => {
             <div className="img-container">
               <img src={footprint} alt="footprint" />
               <div
-                title={pressureData.pressure_point_1}
+                title={pressureDataLeft.pressure_point_1}
                 className={`pressure-point point-1 ${
-                  pressureData.pressure_point_1 < 600
+                  pressureDataLeft.pressure_point_1 < 600
                     ? 'low'
-                    : pressureData.pressure_point_1 < 1200
+                    : pressureDataLeft.pressure_point_1 < 1200
                     ? 'medium'
                     : 'high'
                 }`}
@@ -52,11 +65,11 @@ const Analytics = () => {
                 1
               </div>
               <div
-                title={pressureData.pressure_point_2}
+                title={pressureDataLeft.pressure_point_2}
                 className={`pressure-point point-2 ${
-                  pressureData.pressure_point_2 < 600
+                  pressureDataLeft.pressure_point_2 < 600
                     ? 'low'
-                    : pressureData.pressure_point_2 < 1200
+                    : pressureDataLeft.pressure_point_2 < 1200
                     ? 'medium'
                     : 'high'
                 }`}
@@ -64,11 +77,11 @@ const Analytics = () => {
                 2
               </div>
               <div
-                title={pressureData.pressure_point_3}
+                title={pressureDataLeft.pressure_point_3}
                 className={`pressure-point point-3 ${
-                  pressureData.pressure_point_3 < 600
+                  pressureDataLeft.pressure_point_3 < 600
                     ? 'low'
-                    : pressureData.pressure_point_3 < 1200
+                    : pressureDataLeft.pressure_point_3 < 1200
                     ? 'medium'
                     : 'high'
                 }`}
@@ -76,11 +89,11 @@ const Analytics = () => {
                 3
               </div>
               <div
-                title={pressureData.pressure_point_4}
+                title={pressureDataRight.pressure_point_1}
                 className={`pressure-point point-4 ${
-                  pressureData.pressure_point_4 < 600
+                  pressureDataRight.pressure_point_1 < 600
                     ? 'low'
-                    : pressureData.pressure_point_4 < 1200
+                    : pressureDataRight.pressure_point_1 < 1200
                     ? 'medium'
                     : 'high'
                 }`}
@@ -88,11 +101,11 @@ const Analytics = () => {
                 4
               </div>
               <div
-                title={pressureData.pressure_point_5}
+                title={pressureDataRight.pressure_point_2}
                 className={`pressure-point point-5 ${
-                  pressureData.pressure_point_5 < 600
+                  pressureDataRight.pressure_point_2 < 600
                     ? 'low'
-                    : pressureData.pressure_point_5 < 1200
+                    : pressureDataRight.pressure_point_2 < 1200
                     ? 'medium'
                     : 'high'
                 }`}
@@ -100,11 +113,11 @@ const Analytics = () => {
                 5
               </div>
               <div
-                title={pressureData.pressure_point_6}
+                title={pressureDataRight.pressure_point_3}
                 className={`pressure-point point-6 ${
-                  pressureData.pressure_point_6 < 600
+                  pressureDataRight.pressure_point_3 < 600
                     ? 'low'
-                    : pressureData.pressure_point_6 < 1200
+                    : pressureDataRight.pressure_point_3 < 1200
                     ? 'medium'
                     : 'high'
                 }`}
