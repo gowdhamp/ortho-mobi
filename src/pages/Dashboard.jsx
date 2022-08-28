@@ -127,15 +127,19 @@ const Dashboard = () => {
   useEffect(() => {
     setInterval(() => {
       axios
-        .get('https://exploremychoice.in/sih/ortho-mobi/getdataLeft.php')
+        .get('https://exploremychoice.in/sih/ortho-mobi/getdataleft.php')
         .then((response) => {
           setaxdataLeft(response.data[0]);
         });
       axios
-        .get('https://exploremychoice.in/sih/ortho-mobi/getdataRight.php')
+        .get('https://exploremychoice.in/sih/ortho-mobi/getdataright.php')
         .then((response) => {
           setaxdataRight(response.data[0]);
         });
+
+      console.log(axdataRight.pressure_point_1);
+      console.log(axdataRight.pressure_point_2);
+      console.log(axdataRight.pressure_point_3);
 
       setRealData([
         {
@@ -169,7 +173,7 @@ const Dashboard = () => {
           title: 'Foot Pressure (R)',
         },
       ]);
-    }, 20000);
+    }, 2000);
   }, [axdataLeft, axdataRight, stepCount]);
 
   return (
