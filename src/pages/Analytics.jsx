@@ -81,10 +81,6 @@ const Analytics = () => {
     timestamp: '0',
   });
 
-  const headers = {
-    'Content-Type': 'application/json',
-  };
-
   useEffect(() => {
     setInterval(() => {
       axios
