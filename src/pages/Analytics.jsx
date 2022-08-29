@@ -88,17 +88,13 @@ const Analytics = () => {
   useEffect(() => {
     setInterval(() => {
       axios
-        .get('https://exploremychoice.in/sih/ortho-mobi/getdataleft.php', {
-          headers,
-        })
+        .get('https://exploremychoice.in/sih/ortho-mobi/getdataleft.php')
         .then((response) => {
           setPressureDataLeft(response.data[0]);
         });
 
       axios
-        .get('https://exploremychoice.in/sih/ortho-mobi/getdataright.php', {
-          headers,
-        })
+        .get('https://exploremychoice.in/sih/ortho-mobi/getdataright.php')
         .then((response) => {
           setPressureDataRight(response.data[0]);
         });
